@@ -22,7 +22,7 @@ namespace MimeHelpers.Tests
         public void TestCreation()
         {
             var mh  = new MimeHelpers();
-            foreach (var keyValuePair in mh.ApplicationToMimeTypeDictionary)
+            foreach (var keyValuePair in mh.ExtMimeDictionary)
             {
                 output.WriteLine($"{keyValuePair.Key} ==> {keyValuePair.Value}");
             }

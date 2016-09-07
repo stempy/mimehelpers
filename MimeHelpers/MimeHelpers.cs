@@ -39,7 +39,9 @@ namespace MimeHelpers
                     var lineVals = GetLineValues(line);
                     var ext = lineVals[0];
                     var mimeType = lineVals[1];
-                    d.Add(ext,mimeType);
+
+                    if (!d.ContainsKey(ext))
+                        d.Add(ext,mimeType);
                 }
             }
             return d;
@@ -57,7 +59,9 @@ namespace MimeHelpers
                     var lineVals = GetLineValues(line);
                     var ext = lineVals[0];
                     var mimeType = lineVals[1];
-                    d.Add(ext, mimeType);
+
+                    if (!d.ContainsKey(ext))
+                        d.Add(ext, mimeType);
                 }
             }
             return d;
