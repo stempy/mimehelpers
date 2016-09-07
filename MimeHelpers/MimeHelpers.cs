@@ -24,7 +24,8 @@ namespace MimeHelpers
 
         public string GetMimeTypeForExtension(string extension)
         {
-            extension = extension.TrimStart('.');
+            var s = Path.GetExtension(extension);
+            if (s != null) extension = s.TrimStart('.');
             return ExtMimeDictionary[extension];
         }
 
