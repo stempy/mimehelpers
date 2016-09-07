@@ -27,5 +27,22 @@ namespace MimeHelpers.Tests
                 output.WriteLine($"{keyValuePair.Key} ==> {keyValuePair.Value}");
             }
         }
+
+
+        [Fact]
+        public void get_mimetype_for_ext()
+        {
+            var mh = new MimeHelpers();
+
+            var pdfMime = mh.GetMimeTypeForExtension("pdf");
+            var html = mh.GetMimeTypeForExtension("html");
+            var htm = mh.GetMimeTypeForExtension("htm");
+
+            Assert.Equal(pdfMime,"application/pdf");
+            Assert.True(html=="text/html");
+            Assert.Equal(html,"text/html");
+
+        }
+
     }
 }

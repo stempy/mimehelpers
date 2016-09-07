@@ -21,6 +21,21 @@ namespace MimeHelpers
             ApplicationToMimeTypeDictionary = GetAppToMime();
         }
 
+
+        public string GetMimeTypeForExtension(string extension)
+        {
+            return ExtMimeDictionary[extension];
+        }
+
+        public string GetMimeTypeForApplication(string application)
+        {
+            var mime =
+                ApplicationToMimeTypeDictionary.Keys.FirstOrDefault(m => m.ToLower().Contains(application));
+
+            return mime;
+        }
+
+
         private string[] GetLineValues(string line)
         {
             return line.Split(',').Select(m=>m.Trim('"')).ToArray();
