@@ -24,6 +24,7 @@ namespace MimeHelpers
 
         public string GetMimeTypeForExtension(string extension)
         {
+            extension = extension.TrimStart('.');
             return ExtMimeDictionary[extension];
         }
 
@@ -51,12 +52,15 @@ namespace MimeHelpers
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
-                    var lineVals = GetLineValues(line);
-                    var ext = lineVals[0];
-                    var mimeType = lineVals[1];
+                    if (!string.IsNullOrWhiteSpace(line))
+                    {
+                        var lineVals = GetLineValues(line);
+                        var ext = lineVals[0];
+                        var mimeType = lineVals[1];
 
-                    if (!d.ContainsKey(ext))
-                        d.Add(ext,mimeType);
+                        if (!d.ContainsKey(ext))
+                            d.Add(ext, mimeType);
+                    }
                 }
             }
             return d;
@@ -71,12 +75,15 @@ namespace MimeHelpers
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
-                    var lineVals = GetLineValues(line);
-                    var ext = lineVals[0];
-                    var mimeType = lineVals[1];
+                    if (!string.IsNullOrWhiteSpace(line))
+                    {
+                        var lineVals = GetLineValues(line);
+                        var ext = lineVals[0];
+                        var mimeType = lineVals[1];
 
-                    if (!d.ContainsKey(ext))
-                        d.Add(ext, mimeType);
+                        if (!d.ContainsKey(ext))
+                            d.Add(ext, mimeType);
+                    }
                 }
             }
             return d;

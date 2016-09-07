@@ -35,10 +35,12 @@ namespace MimeHelpers.Tests
             var mh = new MimeHelpers();
 
             var pdfMime = mh.GetMimeTypeForExtension("pdf");
+            var pdfMime2 = mh.GetMimeTypeForExtension(".pdf");
             var html = mh.GetMimeTypeForExtension("html");
             var htm = mh.GetMimeTypeForExtension("htm");
 
             Assert.Equal(pdfMime,"application/pdf");
+            Assert.Equal(pdfMime2, "application/pdf");
             Assert.True(html=="text/html");
             Assert.Equal(html,"text/html");
 
